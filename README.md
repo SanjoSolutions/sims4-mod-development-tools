@@ -69,6 +69,9 @@ These create and remove a debugging environment so that you can debug your game 
 is that it requires PyCharm Pro, which is a paid program that costs money. There's no other known way to do this. If
 you have PyCharm Pro then this will access the debugging capability in it and create 2 mods.
 
+This has been tested with PyCharm Professional Edition 2020.2.3. It is recommended to use this version.
+It can be downloaded from [this page](https://www.jetbrains.com/pycharm/download/other.html).
+
 * `pycharm-debug-capability.ts4script` which gives the Sims 4 capability to debug by connecting to PyCharm Pro
 * `pycharm-debug-cmd.ts4script` which creates a cheat code `pycharm.debug` you can enter in-game which will active
 debugging for the rest of the game.

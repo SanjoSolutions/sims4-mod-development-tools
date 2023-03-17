@@ -33,11 +33,11 @@ projects_folder = os.path.expanduser(
 )
 
 # Location of the game folder
-game_folder = os.path.join('C:', os.sep, 'Program Files (x86)', 'Origin Games', 'The Sims 4')
+game_folder = os.path.join('C:', os.sep, 'Program Files', 'EA Games', 'The Sims 4')
 
 # ONLY FOR USERS OF PYCHARM PRO: Location of PyCharm Professional for debug setup
 # You do not need to use PyCharm at all or the professional version, ignore this setting if you are not
-pycharm_pro_folder = os.path.join('C:', os.sep, 'Program Files', 'JetBrains', 'PyCharm 2020.2.2')
+pycharm_pro_folder = os.path.join('C:', os.sep, 'Program Files', 'JetBrains', 'PyCharm 2020.2.3')
 
 # ####################################################
 # Settings that you can but generally won't change

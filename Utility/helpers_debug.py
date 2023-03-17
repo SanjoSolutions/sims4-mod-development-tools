@@ -11,17 +11,18 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
-
-import py_compile
-import tempfile
+import glob
 import os
+import py_compile
 import shutil
+import tempfile
 from pathlib import Path
 from zipfile import PyZipFile, ZIP_STORED
 
+from Utility.helpers_package import install_package
 from Utility.helpers_path import get_sys_folder, get_rel_path, remove_file, replace_extension, remove_dir, \
     ensure_path_created
-from Utility.helpers_package import install_package
+
 
 # Thank you to Sigma1202 from https://www.youtube.com/watch?v=RBnS8m0174U
 # for coming up with this process
@@ -49,7 +50,7 @@ def debug_ensure_pycharm_debug_package_installed() -> None:
     """
 
     print("Making sure you have the debugging package installed...")
-    install_package("pydevd-pycharm~=202.7319.64")
+    install_package("pydevd-pycharm~=202.7660.27")
 
 
 def debug_install_mod(mod_src: str, mods_dir: str, mod_name: str, mod_folder_name: str) -> None:
@@ -101,9 +102,6 @@ def debug_install_egg(egg_path: str, mods_dir, dest_name: str, mod_folder_name: 
 
     ensure_path_created(mods_sub_dir)
 
-    # Get python ctypes folder
-    sys_ctypes_folder = os.path.join(get_sys_folder(), "Lib", "ctypes")
-
     # Create temp directory
     tmp_dir = tempfile.TemporaryDirectory()
     tmp_egg = tmp_dir.name + os.sep + filename
@@ -125,13 +123,8 @@ def debug_install_egg(egg_path: str, mods_dir, dest_name: str, mod_folder_name: 
     # Remove archive
     remove_file(tmp_egg)
 
-    # Copy ctype folder to extracted archive
-    shutil.copytree(sys_ctypes_folder, tmp_dir.name + os.sep + "ctypes")
+    copy_package("ctypes", tmp_dir)
 
-    # Remove that one folder
-    remove_dir(tmp_dir.name + os.sep + "ctypes" + os.sep + "__pycache__")
-
-    # Grab a handle on the egg
     zf = PyZipFile(mod_path, mode='w', compression=ZIP_STORED, allowZip64=True, optimize=2)
 
     # Add all the files in the tmp directory to the zip file
@@ -148,6 +141,25 @@ def debug_install_egg(egg_path: str, mods_dir, dest_name: str, mod_folder_name: 
         tmp_dir.cleanup()
     except:
         pass
+
+
+def copy_package(package_name, tmp_dir):
+    package_path = tmp_dir.name + os.sep + package_name
+    shutil.copytree(os.path.join(get_sys_folder(), "Lib", package_name), package_path)
+
+    remove_dir(tmp_dir.name + os.sep + package_name + os.sep + "__pycache__")
+    remove_dir(tmp_dir.name + os.sep + package_name + os.sep + "futures" + os.sep + "__pycache__")
+
+    for directory_path in glob.iglob(package_path + "/**/__pycache__", recursive=True):
+        shutil.rmtree(directory_path)
+
+    for file_path in glob.iglob(package_path + "/**/*.py", recursive=True):
+        with open(file_path) as file:
+            content = file.read()
+        content = content.replace('import enum', 'import enum_lib as enum')
+        content = content.replace('from enum import ', 'from enum_lib import ')
+        with open(file_path, 'w') as file:
+            file.write(content)
 
 
 def debug_teardown(mods_dir: str, mod_folder_name: str) -> None:
