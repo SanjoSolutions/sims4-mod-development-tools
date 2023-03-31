@@ -22,7 +22,7 @@
 
 from Utility.helpers_debug import debug_ensure_pycharm_debug_package_installed, debug_install_mod, debug_install_egg, \
     debug_teardown
-from settings import mods_folder, debug_eggs_path, debug_cmd_mod_src_path, debug_cmd_mod_name, debug_capability_name, \
+from settings_global import mods_folder, debug_eggs_path, debug_cmd_mod_src_path, debug_cmd_mod_name, debug_capability_name, \
     debug_mod_subfolder
 
 # Ensure PyCharm Pro debug package is installed

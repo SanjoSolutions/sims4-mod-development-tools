@@ -11,9 +11,14 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+import os
+import sys
+
 from Utility.helpers_debug import debug_install_mod
 from Utility.helpers_symlink import symlink_create_win, symlink_exists_win
-from settings import mods_folder, src_path, creator_name, project_name, devmode_cmd_mod_src_path, devmode_cmd_mod_name
+from settings_global import mods_folder, src_path, creator_name, devmode_cmd_mod_src_path, devmode_cmd_mod_name
+sys.path.append(os.getcwd())
+from settings import project_name
 
 is_devmode = symlink_exists_win(creator_name, mods_folder, project_name)
 

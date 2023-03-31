@@ -11,12 +11,15 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+import sys
 from zipfile import PyZipFile, ZIP_STORED
 
 import os
 import shutil
 import tempfile
-from settings import build_path, creator_name, project_name
+from settings_global import build_path, creator_name
+sys.path.append(os.getcwd())
+from settings import project_name
 from Utility.helpers_path import ensure_path_created, remove_file, get_rel_path
 
 # Build paths and create temp directory

@@ -18,7 +18,7 @@ import sys
 
 from Utility.helpers_decompile import decompile_pre, decompile_zips, decompile_print_totals
 from Utility.helpers_path import ensure_path_created, remove_dir
-from settings import gameplay_folder_data, gameplay_folder_game, projects_python_path
+from settings_global import gameplay_folder_data, gameplay_folder_game, projects_python_path
 
 if os.path.exists(projects_python_path):
     print("This will wipe out the old decompilation at: " + projects_python_path)

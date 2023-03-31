@@ -11,11 +11,15 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
-import shutil
+import os
+import sys
+
 from Utility.helpers_debug import debug_teardown
 from Utility.helpers_path import remove_dir
 from Utility.helpers_symlink import symlink_remove_win
-from settings import mods_folder, debug_mod_subfolder, creator_name, project_name, build_path
+from settings_global import mods_folder, debug_mod_subfolder, creator_name, build_path
+sys.path.append(os.getcwd())
+from settings import project_name
 
 print("Removing Debug Setup...")
 debug_teardown(mods_folder, debug_mod_subfolder)

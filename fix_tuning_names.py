@@ -15,7 +15,7 @@
 import fnmatch
 import os
 
-from settings import projects_tuning_path
+from settings_global import projects_tuning_path
 
 # For pretty progress and results
 col_count = 0

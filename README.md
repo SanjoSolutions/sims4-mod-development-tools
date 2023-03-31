@@ -47,13 +47,6 @@ This compiles and packages your `src` folder and creates a `build` folder contai
 deployment. It then copies your packaged mod to the games Mods folder under it's own sub-folder 
 `Mods/YourName_ProjectName/YourName_ProjectName.ts4script`.
 
-**Update:**
-The old behaviour was to create 2 mod files, a `slim` version and a `full` version. It no longer does this and opts to
-only build a full version. The reason why is new information was learned about The Sims 4 loading process and it's
-highly discouraged to only include compiled python files. I wrote a tutorial 
-[about it here](https://medium.com/swlh/the-sims-4-modern-python-modding-ultimate-loading-guide-77ce1b68f1e7) detailing 
-the reasoning behind this change.
-
 ### decompile.py
 I put a lot of work into this and this is a big area where mine greatly differs from `andrew`. It leverages the latest 
 decompiler that has the highest success rate currently [uncompyle6](https://pypi.org/project/uncompyle6/) and goes 
