@@ -46,6 +46,7 @@ This provides several scripts you can run and use in your workflow and mod
 This compiles and packages your `src` folder and creates a `build` folder containing your packaged mod ready for 
 deployment. It then copies your packaged mod to the games Mods folder under it's own sub-folder 
 `Mods/YourName_ProjectName/YourName_ProjectName.ts4script`.
+This script works with the project in the current working directory.
 
 ### decompile.py
 I put a lot of work into this and this is a big area where mine greatly differs from `andrew`. It leverages the latest 
