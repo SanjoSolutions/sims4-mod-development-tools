@@ -1,5 +1,9 @@
 # Sims 4 Mod Development Tools
 
+__Note:__ Most of the README is currently from [the project that this work has been based on](https://github.com/junebug12851/Sims4ScriptingBPProj). Therefore, most text has been written by someone else.
+
+---
+
 This is a bolerplate project, sort of like a pre-made template and it represents one project so you can copy it for new 
 projects. To get started just download, do some super quick setup, and you're ready to go. It can decompile the game 
 libraries and compile your mod into 2 different flavors and don't forget to check back for occasional updates. 
