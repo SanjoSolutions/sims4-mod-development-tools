@@ -186,11 +186,6 @@ your location you need to change this.
 There are many other settings related to the project but you generally won't need to change them. I suggest going 
 through the file though and making sure everything is how you want it.
 
-## License
+## Credit
 
-Licensed [Apache2](https://www.apache.org/licenses/LICENSE-2.0), basically do whatever you want to do as long as you 
-credit me back and don't try to pose as me.
-
-## Contributing
-
-Contributions are welcome, just fork and send a pull request
+This work has been based on [this work](https://github.com/junebug12851/Sims4ScriptingBPProj).
