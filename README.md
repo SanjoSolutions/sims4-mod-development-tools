@@ -1,4 +1,4 @@
-# Sims 4 Scripting Boilerplate Project
+# Sims 4 Mod Development Tools
 
 This is a bolerplate project, sort of like a pre-made template and it represents one project so you can copy it for new 
 projects. To get started just download, do some super quick setup, and you're ready to go. It can decompile the game 
