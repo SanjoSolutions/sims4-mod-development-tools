@@ -42,11 +42,9 @@ def compile(mod_name: str, src_dir: str, build_dir: str) -> None:
     for folder, subs, files in os.walk(src_dir):
         for filename in fnmatch.filter(files, '*.py'):
             file_path_py = folder + os.sep + filename
-            print(file_path_py)
             file_path_pyc = replace_extension(file_path_py, "pyc")
             rel_path_pyc = get_rel_path(file_path_pyc, src_dir)
             out_file_path = os.path.join(build_dir, rel_path_pyc)
-            print('out: ' + out_file_path)
             py_compile.compile(file_path_py, out_file_path)
             zf.write(out_file_path, rel_path_pyc)
             remove_file(out_file_path)
