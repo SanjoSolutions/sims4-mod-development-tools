@@ -19,8 +19,9 @@ from pathlib import Path
 # Settings you can change
 # ####################################################
 
-# Your Name
-creator_name = 'My Creator Name'
+author_name = 'Author'
+
+project_name = 'Project'
 
 # Sims 4 mod folder location
 mods_folder = os.path.expanduser(

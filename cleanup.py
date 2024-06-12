@@ -17,15 +17,14 @@ import sys
 from Utility.helpers_debug import debug_teardown
 from Utility.helpers_path import remove_dir
 from Utility.helpers_symlink import symlink_remove_win
-from settings_global import mods_folder, debug_mod_subfolder, creator_name, build_path
 sys.path.append(os.getcwd())
-from settings import project_name
+from settings import mods_folder, debug_mod_subfolder, author_name, project_name, build_path
 
 print("Removing Debug Setup...")
 debug_teardown(mods_folder, debug_mod_subfolder)
 
 print("Removing Mod Folder in Mods...")
-symlink_remove_win(creator_name, mods_folder, project_name)
+symlink_remove_win(author_name, mods_folder, project_name)
 
 print("Removing Build folder...")
 remove_dir(build_path)

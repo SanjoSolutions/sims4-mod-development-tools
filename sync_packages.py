@@ -19,12 +19,11 @@ import os
 import shutil
 import sys
 
-from settings_global import assets_path, mods_folder, creator_name, build_path
 from Utility.helpers_path import ensure_path_created, remove_file
 sys.path.append(os.getcwd())
-from settings import project_name
+from settings import assets_path, mods_folder, author_name, project_name, build_path
 
-mod_name_folder_path = mods_folder + os.sep + creator_name + "_" + project_name
+mod_name_folder_path = mods_folder + os.sep + author_name + "_" + project_name
 
 ensure_path_created(mod_name_folder_path)
 file_list_failed = []

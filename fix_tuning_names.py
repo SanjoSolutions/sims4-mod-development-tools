@@ -15,7 +15,8 @@
 import fnmatch
 import os
 
-from settings_global import projects_tuning_path
+sys.path.append(os.getcwd())
+from settings import projects_tuning_path
 
 # For pretty progress and results
 col_count = 0

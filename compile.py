@@ -15,18 +15,14 @@ import os
 import sys
 
 # Helpers
-from Utility.helpers_compile import compile_src
-from settings_global import mods_folder, src_path, creator_name, build_path
+from Utility.helpers_compile import compile
 sys.path.append(os.getcwd())
-from settings import project_name
+from settings import src_path, author_name, project_name, build_path
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 
 try:
-    compile_src(creator_name, src_path, build_path, mods_folder, project_name)
-    exec(open(os.path.join(script_path, "sync_packages.py")).read())
-    exec(open(os.path.join(script_path, "bundle_build.py")).read())
+    compile(author_name + '_' + project_name, src_path, build_path)
 except Exception as error:
     print("An error occurred!")
     print(error)
-    pass

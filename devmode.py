@@ -16,19 +16,19 @@ import sys
 
 from Utility.helpers_debug import debug_install_mod
 from Utility.helpers_symlink import symlink_create_win, symlink_exists_win
-from settings_global import mods_folder, src_path, creator_name, devmode_cmd_mod_src_path, devmode_cmd_mod_name
+from settings import mods_folder, src_path, author_name, devmode_cmd_mod_src_path, devmode_cmd_mod_name
 sys.path.append(os.getcwd())
 from settings import project_name
 
-is_devmode = symlink_exists_win(creator_name, mods_folder, project_name)
+is_devmode = symlink_exists_win(author_name, mods_folder, project_name)
 
 if is_devmode:
     print("You're already in Dev Mode")
     raise SystemExit(1)
 
 try:
-    symlink_create_win(creator_name, src_path, mods_folder, project_name)
-    debug_install_mod(devmode_cmd_mod_src_path, mods_folder, devmode_cmd_mod_name, creator_name + "_" + project_name)
+    symlink_create_win(author_name, src_path, mods_folder, project_name)
+    debug_install_mod(devmode_cmd_mod_src_path, mods_folder, devmode_cmd_mod_name, author_name + "_" + project_name)
     exec(open("sync_packages.py").read())
 except:
     print("An error occurred!")

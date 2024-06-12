@@ -17,13 +17,12 @@ from zipfile import PyZipFile, ZIP_STORED
 import os
 import shutil
 import tempfile
-from settings_global import build_path, creator_name
-sys.path.append(os.getcwd())
-from settings import project_name
 from Utility.helpers_path import ensure_path_created, remove_file, get_rel_path
+sys.path.append(os.getcwd())
+from settings import build_path, author_name, project_name
 
 # Build paths and create temp directory
-folder_name = creator_name + "_" + project_name
+folder_name = author_name + "_" + project_name
 bundle_path = build_path + os.sep + folder_name + ".zip"
 tmp_dir = tempfile.TemporaryDirectory()
 tmp_dst_path = tmp_dir.name + os.sep + folder_name
